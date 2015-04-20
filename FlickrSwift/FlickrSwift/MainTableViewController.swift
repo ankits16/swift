@@ -13,6 +13,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     @IBOutlet weak var tableView: UITableView!
     var images : NSMutableArray = []
+    let opQueue = NSOperationQueue()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +45,23 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:MainTableViewCell = tableView.dequeueReusableCellWithIdentifier("MainTableViewCell", forIndexPath: indexPath) as MainTableViewCell
+        cell.activityIndicator.stopAnimating()
         let entry = self.images.objectAtIndex(indexPath.row) as Image
         cell.nameLabel?.text = entry.title
+        cell.flickrImageView.image = entry.flickrImage
+        if (!entry.isInProgress){
+            entry.isInProgress = true
+            cell.activityIndicator.startAnimating()
+            let url = NSURL(string: entry.imageUrlStr!)
+            let urlRequest =  NSURLRequest(URL: url!)
+            NSURLConnection.sendAsynchronousRequest(urlRequest, queue: self.opQueue, completionHandler: { (response:NSURLResponse!, data:NSData!, error:NSError!) -> Void in
+                let image = UIImage(data: data)
+                cell.flickrImageView.image = image
+                cell.activityIndicator.stopAnimating()
+                entry.isInProgress = false
+                entry.flickrImage = image
+            })
+        }
         return cell
     }
     
@@ -69,6 +85,7 @@ class MainTableViewController: UIViewController, UITableViewDataSource, UITableV
             let alert = UIAlertView(title: "Error", message: "Enter a search string.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
+        searchBar.resignFirstResponder()
     }
 
     

@@ -65,8 +65,13 @@ class DataManager: NSObject {
                             let server = aPhotoDict["server"] as NSString
                             let title = aPhotoDict["title"] as NSString
                             let aPhoto = Image(farm: farm.stringValue, id: id, secret: secret, server: server, title: title)
+                            //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
+                            let tempUrlStr = "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_z.jpg"
+                            aPhoto.imageUrlStr = NSString(string: tempUrlStr)
+                            println(tempUrlStr)
                             fetchedPhotos?.addObject(aPhoto)
                             let dict:NSDictionary? = aPhotoDict as? NSDictionary
+                            
                             
                           
                         }

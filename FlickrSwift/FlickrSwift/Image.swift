@@ -10,7 +10,10 @@ import UIKit
 
 class Image: NSObject {
     //let imageName: String
-   // let imageUrl: NSURL?
+   //
+    
+    var imageUrlStr: NSString?
+    var flickrImage: UIImage?
     var isInProgress: Bool
     var progress: Float
     
