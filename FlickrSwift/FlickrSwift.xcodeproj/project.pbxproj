@@ -21,6 +21,7 @@
 		600061941AE3A48300D12325 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600061921AE3A48300D12325 /* DetailViewController.swift */; };
 		600061951AE3A48300D12325 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 600061931AE3A48300D12325 /* DetailViewController.xib */; };
 		600061981AE3C12100D12325 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 600061971AE3C12100D12325 /* DataManager.swift */; };
+		60084E221AECB6DB00EC15D2 /* ASCircularProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 60084E211AECB6DB00EC15D2 /* ASCircularProgressView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,9 @@
 		600061921AE3A48300D12325 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		600061931AE3A48300D12325 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		600061971AE3C12100D12325 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		60084E1F1AECB6DB00EC15D2 /* FlickrSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlickrSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		60084E201AECB6DB00EC15D2 /* ASCircularProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASCircularProgressView.h; sourceTree = "<group>"; };
+		60084E211AECB6DB00EC15D2 /* ASCircularProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASCircularProgressView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 		600061861AE3980A00D12325 /* Main Table */ = {
 			isa = PBXGroup;
 			children = (
+				60084E1E1AECB6BC00EC15D2 /* Progress View */,
 				600061961AE3C10900D12325 /* Data Manager */,
 				600061911AE39AA900D12325 /* model */,
 				600061871AE3981900D12325 /* Cutom Cells */,
@@ -174,6 +179,16 @@
 				600061971AE3C12100D12325 /* DataManager.swift */,
 			);
 			name = "Data Manager";
+			sourceTree = "<group>";
+		};
+		60084E1E1AECB6BC00EC15D2 /* Progress View */ = {
+			isa = PBXGroup;
+			children = (
+				60084E201AECB6DB00EC15D2 /* ASCircularProgressView.h */,
+				60084E211AECB6DB00EC15D2 /* ASCircularProgressView.m */,
+				60084E1F1AECB6DB00EC15D2 /* FlickrSwift-Bridging-Header.h */,
+			);
+			name = "Progress View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,6 +298,7 @@
 				600061841AE397EC00D12325 /* MainTableViewController.swift in Sources */,
 				6000618A1AE3983500D12325 /* MainTableViewCell.swift in Sources */,
 				600061981AE3C12100D12325 /* DataManager.swift in Sources */,
+				60084E221AECB6DB00EC15D2 /* ASCircularProgressView.m in Sources */,
 				600061941AE3A48300D12325 /* DetailViewController.swift in Sources */,
 				600061631AE397A500D12325 /* AppDelegate.swift in Sources */,
 				600061901AE39AA200D12325 /* Image.swift in Sources */,
@@ -408,11 +424,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Sachin Rastogi (9WFT32K497)";
 				INFOPLIST_FILE = FlickrSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a38eb9e0-7a2e-4c05-bad1-5c4eef38e75c";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlickrSwift/FlickrSwift-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -420,11 +439,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Sachin Rastogi (9WFT32K497)";
 				INFOPLIST_FILE = FlickrSwift/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "a38eb9e0-7a2e-4c05-bad1-5c4eef38e75c";
+				SWIFT_OBJC_BRIDGING_HEADER = "FlickrSwift/FlickrSwift-Bridging-Header.h";
 			};
 			name = Release;
 		};

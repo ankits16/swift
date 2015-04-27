@@ -37,6 +37,7 @@
                 <outlet property="activityIndicator" destination="wsR-qO-nxA" id="DgK-GT-TC0"/>
                 <outlet property="flickrImageView" destination="dkZ-cy-FD0" id="iSB-Sw-g4b"/>
                 <outlet property="nameLabel" destination="Axn-Rt-IqX" id="tSR-DD-5C9"/>
+                <outlet property="progressLbl" destination="HEq-Xd-5Ag" id="DDA-jP-BML"/>
             </connections>
             <point key="canvasLocation" x="305" y="419"/>
         </tableViewCell>
